@@ -1,3 +1,4 @@
+import java.awt.event.ActionEvent;
 import java.io.FileWriter;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -11,7 +12,8 @@ public class InputInfo {
     private static JLabel barcode, proc_name, proc_origin, proc_quality;
     private static JTextField barcodeInput, proc_nameInput, proc_originInput;
     private static JMenuBar proc_qualityChoosing;
-    private static JMenu quality1, quality2, quality3;
+    private static JMenu quality;
+    private static JMenuItem quality1, quality2, quality3;
     private static JButton button;
 
     private static int width, labelsize;
@@ -21,7 +23,7 @@ public class InputInfo {
         frame = new JFrame("Input Product Information");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(frame);
-        frame.setSize(360, 380);
+        frame.setSize(360, 450);
         frame.setLayout(null);
         frame.setVisible(true);
         frame.setResizable(true);
@@ -70,20 +72,43 @@ public class InputInfo {
         proc_originInput.setVisible(true);
         
         
-        //Quality:
+        //Quality  -  Menu Items
+        proc_quality = new JLabel("Quality status:");
+        frame.add(proc_quality);
+        proc_quality.setBounds(10, proc_originInput.getY() + proc_origin.getHeight() + 30, labelsize, 20);
+        proc_quality.setVisible(true);
+        
+        
         proc_qualityChoosing = new JMenuBar();
-        quality1 = new JMenu("A Menu");
-        quality1.setMnemonic(KeyEvent.VK_A);
-        quality1.getAccessibleContext().setAccessibleDescription("The only menu in this program that has menu items");
-        proc_qualityChoosing.add(quality1);
+        frame.setJMenuBar(proc_qualityChoosing);
+        
+        proc_qualityChoosing.setBounds(10, proc_quality.getY() + proc_quality.getHeight() + 10, 200, 28);
+        quality = new JMenu("Quality Menu");
+        quality.setMnemonic(KeyEvent.VK_A);
+        quality.getAccessibleContext().setAccessibleDescription("The only menu in this program that has menu items");
+        proc_qualityChoosing.add(quality);
+        
+        quality1 = new JMenuItem("New - Good", KeyEvent.VK_T);
+        quality1.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_1,ActionEvent.ALT_MASK));
+        quality1.getAccessibleContext().setAccessibleDescription("This doesn't really do anything");
+        quality.add(quality1);
+        
+        quality2 = new JMenuItem("Second Hand - Good", KeyEvent.VK_B);
+        quality2.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_2,ActionEvent.ALT_MASK));
+        quality2.getAccessibleContext().setAccessibleDescription("This doesn't really do anything");
+        quality.add(quality2);
+        
+        quality3 = new JMenuItem("Old - Average", KeyEvent.VK_D);
+        quality3.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_3,ActionEvent.ALT_MASK));
+        quality3.getAccessibleContext().setAccessibleDescription("This doesn't really do anything");
+        quality.add(quality3);
         
         //Button
         button = new JButton("Save Information");
         frame.add(button);
-        button.setBounds(70, proc_originInput.getY() + proc_originInput.getHeight() + 30, 200, 50);
+        button.setBounds(70, proc_quality.getY() + 90, 200, 50);
         button.setVisible(true);
         button.addActionListener(e -> {
-            
             //JSON Objects:
             JSONObject OutPutDetail = new JSONObject();
             
@@ -111,7 +136,9 @@ public class InputInfo {
             ex.printStackTrace();
         }
             
-        /*    String barcode = "#barcode: " + barcodeInput.getText();
+        /*    
+            // Write information in one file JSON:
+            String barcode = "#barcode: " + barcodeInput.getText();
             String name = "Product name: " + proc_nameInput.getText();
             String origin = "Origin:" + proc_originInput.getText();
             
