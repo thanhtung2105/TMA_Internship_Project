@@ -1,3 +1,6 @@
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.io.FileWriter;
 import org.json.simple.JSONArray;
@@ -5,15 +8,16 @@ import org.json.simple.JSONObject;
 import java.awt.event.KeyEvent;
 import javax.swing.*;
 import java.io.IOException;
+import jdk.nashorn.internal.objects.NativeDebug;
 
 public class InputInfo {
 
     private static JFrame frame;
     private static JLabel barcode, proc_name, proc_origin, proc_quality;
-    private static JTextField barcodeInput, proc_nameInput, proc_originInput;
-    private static JMenuBar proc_qualityChoosing;
-    private static JMenu quality;
-    private static JMenuItem quality1, quality2, quality3;
+    private static JTextField barcodeInput, proc_nameInput, proc_originInput, proc_qualityInput;
+//    private static JMenuBar proc_qualityChoosing;
+//    private static JMenu quality;
+//    private static JMenuItem quality1, quality2, quality3;
     private static JButton button;
 
     private static int width, labelsize;
@@ -24,16 +28,16 @@ public class InputInfo {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(frame);
         frame.setSize(360, 450);
+        frame.getContentPane().setBackground(Color.WHITE);
         frame.setLayout(null);
         frame.setVisible(true);
-        frame.setResizable(true);
         frame.setResizable(false);
         width = 320;
         labelsize = 200;
         
         //Objects: 
         //#barcode:
-        barcode = new JLabel("#barcode:");
+        barcode = new JLabel("<html><font color='red'>#barcode:</font><html>");
         frame.add(barcode);
         barcode.setBounds(10, 10, labelsize, 20);
         barcode.setVisible(true);
@@ -45,7 +49,7 @@ public class InputInfo {
         barcodeInput.setVisible(true);
         
         //Name:
-        proc_name = new JLabel("Product name:");
+        proc_name = new JLabel("<html><font color='blue'>Product name:</font><html>");
         frame.add(proc_name);
         proc_name.setBounds(10, barcodeInput.getY() + barcodeInput.getHeight() + 20, labelsize, 20);
         proc_name.setVisible(true);
@@ -59,7 +63,7 @@ public class InputInfo {
        
         
         //Origin:
-        proc_origin = new JLabel("Origin:");
+        proc_origin = new JLabel("<html><font color='blue'>Origin:</font><html>");
         frame.add(proc_origin);
         proc_origin.setBounds(10, proc_nameInput.getY() + proc_nameInput.getHeight() + 20, labelsize, 20);
         proc_origin.setVisible(true);
@@ -73,12 +77,18 @@ public class InputInfo {
         
         
         //Quality  -  Menu Items
-        proc_quality = new JLabel("Quality status:");
+        proc_quality = new JLabel("<html><font color='orange'>Quality Status:</font><html>");
         frame.add(proc_quality);
         proc_quality.setBounds(10, proc_originInput.getY() + proc_origin.getHeight() + 30, labelsize, 20);
         proc_quality.setVisible(true);
         
+        proc_qualityInput = new JTextField();
+        frame.add(proc_qualityInput);
+        proc_qualityInput.setBounds(10, proc_quality.getY() + proc_quality.getHeight() + 10, width, 30);
+        proc_qualityInput.setOpaque(true);
+        proc_qualityInput.setVisible(true);
         
+        /*
         proc_qualityChoosing = new JMenuBar();
         frame.setJMenuBar(proc_qualityChoosing);
         
@@ -103,8 +113,11 @@ public class InputInfo {
         quality3.getAccessibleContext().setAccessibleDescription("This doesn't really do anything");
         quality.add(quality3);
         
+        */
         //Button
         button = new JButton("Save Information");
+        button.setFont(new Font("Arial", Font.BOLD,20));
+        button.setBackground(Color.CYAN);
         frame.add(button);
         button.setBounds(70, proc_quality.getY() + 90, 200, 50);
         button.setVisible(true);
@@ -115,7 +128,7 @@ public class InputInfo {
             OutPutDetail.put("Barcode",barcodeInput.getText());
             OutPutDetail.put("Product name",proc_nameInput.getText());
             OutPutDetail.put("Origin",proc_originInput.getText());
-            OutPutDetail.put("Quality","");
+            OutPutDetail.put("Quality",proc_qualityInput.getText());
             OutPutDetail.put("Status","");
             OutPutDetail.put("Location","");
             
@@ -158,6 +171,10 @@ public class InputInfo {
             barcodeInput.setText("");
             proc_nameInput.setText("");
             proc_originInput.setText("");
+            proc_qualityInput.setText("");
         });
+        
+        ImageIcon img = new ImageIcon("src/Images/image001.png");
+        frame.setIconImage(img.getImage());
     }
 }
