@@ -1,0 +1,131 @@
+1. Introduce about Web3.js
+-	Web2 & Web3	?
+-	Web3.js	-> Ethereum JavaScript API
+
+---> Connect to "Generic JSON RPC"
+
+2. About JSON RPC
+-	RPC	?
+-	JSON RPC	?
+
+3. Truffle - Ganache - Drizzle & Meta Mask
+-	TRUFFLE	
+-	GANACHE + META MASK (manage wallet)
+-	Drizzle
+
+4. Building a DApp
+- The schematic + The process.
+
+==> Using with Raspberry Pi & building NodeJS application to interact.
+
+
+
+Slide 1 - 2 - 3: Tuần trước đó tụi em đã báo cáo với anh về Smart Contract, cách thức viết, ngôn ngữ cũng như mô tả một
+Smart Contract cơ bản và cách thức hoạt động của nó đối với quá trình thực hiện project. 
+Tuần này, nội dung báo cáo chủ yếu của tụi em là về DApp, cách thức tạo nên một DApp bằng một ví dụ sử dụng một 
+framework cơ bản dành cho Ethereum Developer cơ bản và cách thức để thiết lập Smart Contract của mình vào một
+DApp.
+DApp là Decentralized Application - một ứng dụng phân tán. Đây là một trong những lĩnh vực mới khá nổi mà hiện tại 
+nhiều người đang làm, theo đuổi, như trường em có anh Lê Yên Thanh - tác giả của Bus Map, hiện tại ảnh cũng đang StartUp
+về DApp, đây là một lĩnh vực mới mẻ, kiến thức, ngôn ngữ cũng mới nên một tuần tụi em chưa có thể tiếp thu nắm bắt 
+được nó hoàn toàn hết, nói chung khá khó khăn, nên tụi em bước đầu chọn một framework có API hỗ trợ sẵn để làm rồi 
+sau đó mới đưa ra chu trình - cách làm cho project thực tế.
+
+
+Slide 4: Đầu tiên, để đi vào giới thiệu về DApp, ta sẽ cần biết sơ một số khái niệm cũng như một số ứng dụng và framework
+mới.
+Mở đầu, em xin giới thiệu về Web3.0 và Web3.js. 
+Vậy, web3.0 là gì?
+Lịch sử internet cho tới nay đã phát triển được hơn nửa thế kỷ, thì trong hơn 2/3 giai đoạn đó, chúng ta sử dụng internet 
+với dạng web1.0 
+Web1.0 là dạng web kiểu cấu trúc đơn giản nhất, khi mà con người truy cập web với việc chỉ xem được nội dung và đọc
+tin tức là chính.
+Cho đến khí web 2.0 phát triển vào khoảng sau những năm 2000. Chúng ta đã có thêm nhiều khái niệm về Client - Server
+internet. Khi đó, internet chúng ta vẫn hoạt động tuân theo sự phát triển của dữ liệu tập trung. Các dữ liệu tập trung về
+một nguồn đó là Server và người dùng tại các Client nay không chỉ xem mà còn có thể tương tác, giao dịch, lưu trữ thông tin
+và trao đổi dữ liệu thông qua máy chủ tập trung.
+Cho đến 10 năm trở lại đây, khái niệm web3.0 được hình thành và ra đời khi khái niệm về phi tập trung, tiền điện tử được
+hình này. Ngày nay, việc trao đổi dữ liệu đang dần không phụ thuộc vào bất cứ phiên tập trung nào nữa mà thông qua các
+liên kết giao dịch trực tiếp, người dùng có thể tùy biến dữ liệu cá nhân của họ trên mạng internet mà không cần phụ thuộc
+vào nơi lưu trữ mà vẫn đảm bảo được tính an toàn, minh bạch, giao dịch chính xác. Các khái niệm về Blockchain hay P2P
+(peer-to-peer) ngày càng được phổ biến hơn (chủ yếu vẫn ở nước ngoài nhiều hơn VN).
+
+Slide 5: Lịch sử phát triển của web hiện nay đang theo xu hướng tăng sự quản lý nội dung cho từng người dùng mạng chứ
+không còn quá phụ thuộc vào bộ phận quản lý nội dung trên mạng nữa.
+
+Slide 6: Sử biến đổi web3 đã thay đổi rất nhiều lĩnh vực có liên quan tới internet như: kỹ thuật - tài chính - các tổ chức - 
+cá nhân - đa phương tiện và giải trí, ...
+
+Slide 7: Để có cái nhìn dễ hiểu hơn về sự khác biết của web3 so với web2 thông thường mà chúng ta sử dụng, ta có một
+số categlories sau:
+- Đối với việc xử lý thông tin, dữ liệu: web2 -> server như thường thấy, còn web3 thông qua giao thức P2P hoặc blockchain,
+trực tiếp.
+- Lưu trữ thông tin: web2 -> webserver; web3 thông qua các giao thức như IPFS - lưu trữ dữ liệu phân tán.
+- Về các lớp dịch vụ: web2 sử dụng API của HTTP, còn web3 sử dụng thông qua Smart Contract.
+- Lưu trữ web2 trên database, còn web3 thông qua bộ nhớ phân tán, như blockchain.
+
+Slide 8: Một số ứng dụng thực tiễn hiện hành.
+
+Slide 9: Như vậy, để có thể xây dựng được một DApp, nhất thiết phải sử dụng mạng lưới web3. và đối với các project liên
+quan tới Ethereum Blockchain, ta sử dụng tới web3.js
+web3.js được biết đến là một bộ thư viện cho phép chúng ta giao tiếp với một node địa phương hoặc node ở remote trong
+mạng lưới ethereum. Sử dụng thông qua kết nối IPC hoặc HTTP.
+
+Slide 10: Kết nối thôi là chưa đủ, việc kết nối GUI với Ethereum network cần có sự lưu trữ dữ liệu để giao tiếp giữa 
+người dùng và hệ thống ethereum blockchain, ta cần đến một khái niệm khác để giúp ta kết hợp việc này là RPC và JSON RPC.
+
+
+Slide 14: Kế tiếp, là giới thiệu về bộ 3 công cụ cùng 1 plug-in browser hỗ trợ trong công việc test quá trình tạo nên DApp đó là: ...
+
+Slide 15: Bộ 3 công cụ Truffle - Gachane - Drizzle là bộ 3 công cụ được phát triển dành cho những lập trình viên DApp trong việc
+giúp họ tạo ra một DApp phù hợp với ý tưởng và biến cái idea thành hiện thực, tuy nhiên đây là công cụ chỉ dành cho Dev, nên một
+số tính năng nếu muốn dùng sâu để phát triển từ chính framework, environment này thì sẽ cần trả phí nếu dùng nhiều tính năng hỗ trợ,
+nên tạm thời tụi em còn phải cân nhắc xem xét xem có dùng bộ 3 này để làm project thực được hay không, vì mới dùng được 2 ngày
+nên chưa rõ trọn vẹn tất cả. Tụi em mới chọn dùng để Dev thử rồi mới đưa ra quyết định sau. Vì thực tế nếu dùng chính 3 cái này
+sẽ có cái lợi mà cũng có cái vướng mắc.
+
+Slide 16: Giới thiệu chung sơ về 3 cái, 3 cái đều đặt theo tên đồ ăn, bánh kẹo, Truffle thì cho môi trường giúp phát triển Solidity - viết Smart Contract
+Ganache tạo ra cho mình một mạng lưới blockchain và môi trường để dùng thử.
+Drizzle thì giúp tạo ra cách để quản lý DApp - nói cách khác là tạo ra UI để người dùng sử dụng DApp và quản lý được Smart Contract.
+
+Đi sâu vào khả năng của từng cái - cách sử dụng cơ bản.
+
+Slide 21: Ganache giúp ta tạo ra được một mạng lưới Blockchain cá nhân để có thể test trên đó, Ganache là một ứng dụng có thể
+tải về và chạy trực tiếp được trên nền nhiều OS, ta có thể dùng Ganache để kiểm soát hoạt động của chain.
+
+Slide 23: Một số chức năng nổi trội: Ghi lại bản ghi của blockchain, các giao dịch của ethereum blockchain. Có khả năng tự kiểm soát
+việc mining, thông thường đối với một hệ thống blockchain mà chúng ta tự tạo ra, ta cần phải có máy đào đào tự động để giúp chain
+hoạt động, dùng Ganache sẽ có hệ thống tự quản lý việc đó.  Kiểm tra được lịch sử các giao dịch và thông tin của từng block khi giao
+dịch được tạo thành, thực tế trên mạng người ta có thể truy xuất được thông tin ra từ block (tức là lấy thông tin từ smart contract) nhưng
+hiện tại tụi em chưa làm được điều này, chưa test được. Sử dụng được hệ thống Ethereum blockchain.
+
+Slide 24: Nói về Drizzle, công cụ này bọn em mới chỉ tìm hiểu được chứ chưa thực sự sử dụng - nó là một bộ thư viện về front-end 
+giúp người dùng DApp tương tác được với DApp dễ dàng hơn.
+
+Slide 25: Một số tính năng: Phản hồi hệ thống lưu trữ Ethereum - Duy trì được các hàm chức năng cơ bản của Smart Contract - 
+Sử dụng một bộ lưu trữ thực - Bao gồm các thư viện thành phần.
+
+Slide 26:
+tiếp đến là Meta Mask, meta mask là gì? 
+Meta Mask được biết đến là một plug-in cho các loại browser, từ khi web3.0 phát triển thì việc có mặt của Meta Mask được người
+dùng web3 trên Thế giới rất rất ưa chuộng và sử dụng rất nhiều. Về công dụng, meta mask cung cấp một GUI cơ bản để người dùng
+thực hiện dễ dàng các giao dịch Ethereum trên nền tàng các trình duyệt một cách rất nhanh chóng và đơn giản. 
+Meta Mask khi sử dụng, ta có thể cài đặt cho nó các ví và thực hiện vào đúng mạng lưới hệ thôngs Ethereum mà bạn sử dụng. Meta
+Mask chính là cầu nối để người dùng mạng giao tiếp dễ dàng hơn với các framework và môi trường mà DApp tạo ra.
+Meta mask còn có chức năng có thể thay đổi code của nó để tùy biến vào việc mình sử dụng. Thật sự rất hay nhưng bọn em vẫn chưa
+khai thác được khả năng này.
+
+Slide 27: Meta mask khi kết hợp với Ganache, có thể dùng trực tiếp các tài khoản, địa chỉ mà Ganache cung cấp ngay khi khởi tạo,
+đào, để meta mask dùng tài khoản đó và thực hiện các giao dịch được.
+
+Slide 28: Để thực hiện được các bước cơ bản đó, thông thường, khi setup hệ thống Truffle và Ganache tại máy cá nhân, ta sẽ có một
+file config.js để lưu trữ và có thông tin về port của local host của Ethereum blockchain mà Ganache đã tạo ra, rồi sau đó khi sử dụng
+meta mask, ta dùng chính địa chỉ local host này để meta mask có thể sử dụng được các tài khoản/địa chỉ ví đã tạo sẵn để thực hiện
+giao dịch.
+
+Slide 29: Vừa qua em đã trình bày sơ bộ về tất cả các thành phần cần biết, cần có trong quá trình tạo lập một DApp,  bao gồm nhwu
+web3, JSON RPC, các framework và plugin cần thiết. Giờ em sẽ mô tả nên quá trình kết hợp để build một DApp hoàn thiện...
+
+Slide 30: Đầu tiên là về web3.js - đổi với Ethereum - web3.js được xem là một Ethereum JavaScript API mà chúng ta cần cài đặt
+để có thể giao tiếp với hệ thống Blockchain. - cùng với đó là JSON RPC. 
+Sau khi cài được 
