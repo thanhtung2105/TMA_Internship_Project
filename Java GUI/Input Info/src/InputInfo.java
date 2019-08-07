@@ -1,14 +1,10 @@
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.Toolkit;
-import java.awt.event.ActionEvent;
 import java.io.FileWriter;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import java.awt.event.KeyEvent;
 import javax.swing.*;
 import java.io.IOException;
-import jdk.nashorn.internal.objects.NativeDebug;
 
 public class InputInfo {
 
@@ -27,7 +23,7 @@ public class InputInfo {
         frame = new JFrame("Input Product Information");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(frame);
-        frame.setSize(360, 450);
+        frame.setSize(360, 500);
         frame.getContentPane().setBackground(Color.WHITE);
         frame.setLayout(null);
         frame.setVisible(true);
@@ -176,5 +172,9 @@ public class InputInfo {
         
         ImageIcon img = new ImageIcon("src/Images/image001.png");
         frame.setIconImage(img.getImage());
+        JLabel logo = new JLabel();
+        frame.add(logo);
+        logo.setBounds(240, 405, 110, 50);
+        logo.setIcon(img);
     }
 }
