@@ -2,8 +2,8 @@ const { exec } = require('child_process');
 function getData()
 {
 	exec('date',(err,out)=>{if(err){console.error(err)}else{console.log(out)}});
-	exec('vcgencmd measure_temp',(err,out)=>{if(err){console.error(err)}else{console.log(out)}});
+	exec('sudo python Seeed_AMG8833.py',(err,out)=>{if(err){console.error(err)}else{console.log(out)}});
 	console.log('\n');
 }
-console.log('Getting data from CPU ...');
-setInterval(getData,1000);
+console.log('Getting information ...');
+setInterval(getData,3000);
