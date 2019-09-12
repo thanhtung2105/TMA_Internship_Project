@@ -1,0 +1,8 @@
+logisticsblockchain_tmabatch26
+nguyenxuanthong
+
+Project ID: b598fa54056d4b71a1e6e5332f4afa14
+Project secret: 735b5d521a544f3890c40ee3e01b1aa9
+
+Endpoint: mainnet.infura.io/v3/b598fa54056d4b71a1e6e5332f4afa14
+rinkeby.infura.io/v3/b598fa54056d4b71a1e6e5332f4afa14
