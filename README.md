@@ -12,3 +12,5 @@
 đóng gói cùng Gradle và API của Web3 java; file NodeJS Application cho phần giao diện truy xuất thông tin.
 
 - Weekly Reporting Files (pptx): Thư mục chứa các báo cáo kiến thức của project trong 9 tuần thực tập.
+
+    Team: Phan Thanh Tung - Nguyen Thanh Phuong
